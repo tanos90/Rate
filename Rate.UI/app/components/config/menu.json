@@ -1,0 +1,13 @@
+[
+    {
+        "title" : "About",
+        "route": "about"
+    },
+    {
+        "title" : "My reviews",
+        "route": "myReviews",
+        "routeName": "myReviews",
+        "component": "MyReviewsContainer",
+        "path":"myReviews"
+    }
+]
