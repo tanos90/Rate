@@ -64,13 +64,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\Rate.Models.csproj">
-      <Project>{EB85DEFB-0BD2-4B3E-8141-23F45EC887E5}</Project>
-      <Name>Rate.Models</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Rate.DAL\Rate.DAL.csproj">
       <Project>{9DF84692-847E-4C50-9FF0-820F8D681B8C}</Project>
       <Name>Rate.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rate.Models\Rate.Models.csproj">
+      <Project>{53469c63-46ab-4af3-b03c-3f59a0f7c2f0}</Project>
+      <Name>Rate.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Rate.Repository\Rate.Repository.csproj">
       <Project>{185080FA-41AF-4621-AFD7-3176E21BF863}</Project>
