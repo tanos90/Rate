@@ -1,11 +1,17 @@
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 var path = require('path');
+var nodeModules = path.resolve(path.join(__dirname, 'node_modules'));
 
 module.exports = {
     context: path.join(__dirname, "app"),
     devtool: debug ? "inline-sourcemap" : null,
-    entry: path.join(__dirname, "app", "App.js"),
+     
+
+    entry: {
+                app: path.join(__dirname, "app", "App.js"),
+                vendor:['react','daemonite-material','lodash']
+    },
     module: {
         loaders: [{
             test: /\.jsx?$/,
@@ -16,6 +22,14 @@ module.exports = {
                 plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy']
             }
         },
+        {
+            test: /\.(css|scss)$/,
+            include: [
+                path.join(nodeModules, 'daemonite-material'),
+            ],
+            loaders: ["style", "css", "sass"]
+        },
+        { test: require.resolve("jquery"), loader: "imports?jQuery=jquery" },
         { test: /\.json$/, loader: 'json' }
         ]
     },
