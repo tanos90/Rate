@@ -9,8 +9,7 @@ module.exports = {
      
 
     entry: {
-                app: path.join(__dirname, "app", "App.js"),
-                vendor:['react','daemonite-material','lodash']
+                app: path.join(__dirname, "app", "App.js")
     },
     module: {
         loaders: [{
@@ -24,12 +23,8 @@ module.exports = {
         },
         {
             test: /\.(css|scss)$/,
-            include: [
-                path.join(nodeModules, 'daemonite-material'),
-            ],
             loaders: ["style", "css", "sass"]
         },
-        { test: require.resolve("jquery"), loader: "imports?jQuery=jquery" },
         { test: /\.json$/, loader: 'json' }
         ]
     },
