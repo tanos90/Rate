@@ -51,7 +51,7 @@ export default class Navbar extends React.Component {
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <Button class="navbar-brand" onClick = { this.handleClick.bind(this) }> RateFlix </Button>    
+                        <Button class="navbar-brand" onClick = { this.handleClick.bind(this) }> MeinFlix </Button>    
                     </div>
                     <div class={"navbar-collapse " + navClass } id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
@@ -75,8 +75,8 @@ export default class Navbar extends React.Component {
 
 const Button = styled.button `
   background: red;
-  color: white;
-  font-size: .1em;
+  color: white !important;
+  font-size: 1.1em;
   margin: 0px;
   padding: 2px 5px;
   border: 2px solid white;

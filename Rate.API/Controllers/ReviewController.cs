@@ -42,7 +42,7 @@ namespace Rate.Controllers
                 review.Flick = _flickService.FindBy(flck => flck.Id == review.Flick_Id).FirstOrDefault();
                 if (review.Flick != null)
                 {
-                    review.Flick.ImdbId = review.Flick_Id;
+                    review.Flick.Id = review.Flick_Id;
                     _reviewService.Add(review);
                     return Ok();
                 }

@@ -16,7 +16,7 @@ namespace Rate.Mapping
                 ForMember(dest => dest.Flick, opt=>opt.MapFrom(src=>src.Flick))
                   .ReverseMap();
             mapper.CreateMap<FlickDTO, Flick>().
-                ForMember(dest => dest.Id, opt=> opt.MapFrom(src=>src.ImdbId))
+                ForMember(dest => dest.Id, opt=> opt.MapFrom(src=>src.Id))
                 .ReverseMap();
         }
     }

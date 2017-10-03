@@ -14,10 +14,11 @@ namespace Rate.Services.Concrete
 {
     public class FlickService : ModelServiceBase<RateflixContext, Flick, FlickDTO>, IFlickService
     {
-        public FlickService(RateflixContext context, Action<IMapperConfigurationExpression> mapper)
+        private IFlickAPI _flickAPI;
+        public FlickService(RateflixContext context, Action<IMapperConfigurationExpression> mapper,IFlickAPI flickAPI)
             : base(context, mapper)
         {
-
+            _flickAPI = flickAPI;
         }
 
         public FlickDTO FetchByTitle(string title)
@@ -31,29 +32,11 @@ namespace Rate.Services.Concrete
             }
             else
             {
-                flick = FetchFromAPI(title);
+                flick = _flickAPI.FetchFlickByTitle(title);
                 Add(flick);
                 return flick;
             }
 
-        }
-
-        private FlickDTO FetchFromAPI(string title)
-        {
-            string OMDBApiUrl = $"https://www.omdbapi.com/?t={title}&plot=short&r=json";
-            using (HttpClient httpClient = new HttpClient())
-            {
-                var response = httpClient.GetAsync(OMDBApiUrl).GetAwaiter().GetResult();
-                if (response.IsSuccessStatusCode)
-                {
-                    string flickResponse = response.Content.ReadAsStringAsync().Result;
-                    if (!string.IsNullOrEmpty(flickResponse))
-                    {
-                        return JsonConvert.DeserializeObject<FlickDTO>(flickResponse);
-                    }
-                }
-                return null;
-            }
         }
 
 

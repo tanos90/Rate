@@ -4,7 +4,6 @@ import RateFlixAPI from '../api/RateFlixAPI';
 
 let ReviewActions = {
     createReview(review) {
-        console.log(constants);
         AppDispatcher.dispatchAsync(RateFlixAPI.createReview(review), {
             request: constants.CREATE_REVIEW,
             success: constants.CREATE_REVIEW_SUCCESS,

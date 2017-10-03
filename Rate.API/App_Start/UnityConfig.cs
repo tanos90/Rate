@@ -31,8 +31,10 @@ namespace Rate.App_Start
 
             var context = new RateflixContext();
 
+            IFlickAPI flickAPI = new TMDBAdapter();
+
             var reviewService = new ReviewService(context, _mapperConfiguration);
-            var flickService = new FlickService(context, _mapperConfiguration);
+            var flickService = new FlickService(context, _mapperConfiguration, flickAPI);
 
             container.RegisterInstance<IReviewService>(reviewService);
             container.RegisterInstance<IFlickService>(flickService);

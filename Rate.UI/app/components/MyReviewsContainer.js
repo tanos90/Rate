@@ -25,6 +25,7 @@ export default class MyReviewsContainer extends Component {
     }
 
     getReviews(){
+        console.log(this);
         this.setState({
             reviews : ReviewStore.getAll()
         })
