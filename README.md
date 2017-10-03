@@ -11,4 +11,8 @@ Backend:
 Restore nuget packages.  
 Run the API project.  
 
+Database:
+Install localdb mssqlserver 
+Go to visual studio open package manager console, change the project to DAL and run update-database
+
 If you are running into CORS origin errors, try to run this in internet explorer/Edge or modified the configuration of your browser to accept cors request.
